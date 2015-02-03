@@ -1,0 +1,57 @@
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+body {
+  -webkit-animation: fadeIn 900ms;
+}
+
+h1 {
+  color: @nice-blue;
+}
+
+h2 {
+  color: @light-blue;
+}
+
+.blink {
+  -webkit-animation: fadeIn 900ms;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.transition {
+  -webkit-animation: viewShowFromLeftEnter 900ms;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 900ms;
+}
+
+.fadeTo(@from, @to){
+  from {opacity: @from;}
+  to {opacity: @to;}
+}
+
+@keyframes fadeIn{
+  .fadeTo(0, 1);
+}
+
+@-webkit-keyframes fadeIn{
+  .fadeTo(0, 1);
+}
+
+.slide(@from, @to) {
+  from {
+    -webkit-transform: translate3d(@from, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(@to, 0, 0);
+  }
+}
+@-webkit-keyframes viewShowFromLeftEnter {
+  .slide(-100%, 0);
+}
+
+.hide {
+  visibility: hidden;
+}

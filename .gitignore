@@ -53,3 +53,5 @@ build/Release
 node_modules
 platforms/android/CordovaLib/ant-build
 platforms/android/ant-build
+www
+

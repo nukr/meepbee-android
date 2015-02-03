@@ -1,0 +1,33 @@
+{
+  "name": "meepbee-android",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nukr",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^1.1.0",
+    "flux": "^2.0.1",
+    "gulp": "^3.8.10",
+    "superagent": "^0.21.0"
+  },
+  "devDependencies": {
+    "6to5-core": "^3.3.4",
+    "6to5-loader": "^3.0.0",
+    "6to5-runtime": "^3.3.4",
+    "css-loader": "^0.9.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "less": "^2.3.1",
+    "less-loader": "^2.0.0",
+    "react": "^0.12.2",
+    "react-hot-loader": "^1.1.4",
+    "require-dir": "^0.1.0",
+    "style-loader": "^0.8.3",
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0"
+  }
+}
