@@ -11,21 +11,11 @@ let Image = React.createClass({
   componentWillUnmount(){
   },
 
-  handleLoaded(product, event) {
-    event.target.className = 'fadeIn';
-  },
-
-  handleClick(event) {
-    console.log('click');
-    event.target.className = cx({
-      [event.target.className]: true,
-      transition: true
-    });
-  },
-
   render(){
     let imgClass = cx({
-      hide: true
+      hide: this.props.product.hide,
+      transition: this.props.product.transition,
+      fadeIn: this.props.product.fadeIn
     });
 
     let imgWrapperClass = cx({
@@ -34,11 +24,10 @@ let Image = React.createClass({
       <div className={imgWrapperClass}>
         <img
           className={imgClass}
-          onLoad={this.handleLoaded.bind(null, this.props.product)}
-          onClick={this.handleClick}
+          onLoad={this.props.onLoad.bind(null, this.props.product)}
+          onClick={this.props.onClick.bind(null, this.props.product)}
           src={this.props.product.thumbnailImages[0].url}
-          width="250"
-          height="250"
+          width={window.innerWidth}
         />
         <p>{this.props.product.title}</p>
       </div>

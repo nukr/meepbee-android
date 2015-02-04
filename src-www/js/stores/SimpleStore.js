@@ -11,7 +11,8 @@ State.animation = {
   blink: false,
   transition: false
 }
-
+State.initializing = false;
+State.global = {};
 State.products = [];
 
 /**
@@ -44,6 +45,24 @@ Object.assign(Store, EventEmitter.prototype, {
     }
   },
 
+  transition(item) {
+    item.transition = true;
+    item.fadeIn = false;
+    item.hide = false;
+  },
+
+  hide(item) {
+    item.transition = false;
+    item.fadeIn = false;
+    item.hide = true;
+  },
+
+  fadeIn(item) {
+    item.fadeIn = true;
+    item.hide = false;
+    item.transition = false;
+  },
+
   addChangeListener(callback) {
     this.on(AppConstants.CHANGE_EVENT, callback);
   },
@@ -68,6 +87,21 @@ Store.dispatchToken = AppDispatcher.register(function eventHandlers(evt) {
   switch (action.actionType) {
 
     case AppConstants.SAVE:
+      Store.emit(AppConstants.CHANGE_EVENT);
+      break;
+
+    case AppConstants.INIT:
+      State.initializing = true;
+      Store.emit(AppConstants.CHANGE_EVENT);
+      break;
+
+    case AppConstants.TRANSITION:
+      Store.transition(action.items);
+      Store.emit(AppConstants.CHANGE_EVENT);
+      break;
+
+    case AppConstants.FADE_IN:
+      Store.fadeIn(action.items)
       Store.emit(AppConstants.CHANGE_EVENT);
       break;
 

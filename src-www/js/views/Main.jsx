@@ -22,7 +22,6 @@ let Main = React.createClass({
   },
 
   render() {
-    console.log(this.state);
     let classString = cx({
       'blink': this.state.animation.blink,
       'transition': this.state.animation.transition
@@ -39,7 +38,7 @@ let Main = React.createClass({
           <button onClick={ this.handleClick.bind(null, 'transition') } >Transition</button>
           <button onClick={ this.handleClick.bind(null, 'stop') } >Stop</button>
         </div>
-        <ImageBox products={this.state.products}/>
+        <ImageBox products={this.state.products} />
       </div>
     )
   },

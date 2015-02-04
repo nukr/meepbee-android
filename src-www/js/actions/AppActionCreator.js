@@ -17,6 +17,20 @@ let AppActionCreators = {
     })
   },
 
+  fadeIn(product){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.FADE_IN,
+      items: product
+    })
+  },
+
+  transition(product){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.TRANSITION,
+      items: product
+    })
+  },
+
   saveToStore(data){
     AppDispatcher.handleViewAction({
       actionType: AppConstants.SAVE,

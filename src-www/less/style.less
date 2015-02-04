@@ -14,14 +14,17 @@ h2 {
   color: @light-blue;
 }
 
+#react {
+  overflow: hidden;
+}
+
 .blink {
   -webkit-animation: fadeIn 900ms;
   -webkit-animation-iteration-count: infinite;
 }
 
 .transition {
-  -webkit-animation: viewShowFromLeftEnter 900ms;
-  -webkit-animation-iteration-count: infinite;
+  -webkit-animation: viewShowFromRightEnter 900ms;
 }
 
 .fadeIn {
@@ -48,6 +51,10 @@ h2 {
 
 @-webkit-keyframes viewShowFromLeftEnter {
   .slide(-100%, 0);
+}
+
+@-webkit-keyframes viewShowFromRightEnter {
+  .slide(100%, 0);
 }
 
 .hide {
