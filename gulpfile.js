@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var cp = require('child_process');
 require('require-dir')('./gulp-tasks');
 
-gulp.task('default', ['build:html', 'build:react', 'watch']);
+gulp.task('default', ['copy:assets', 'build:html', 'build:react', 'watch']);
 
 gulp.task('open:browser', function () {
   cp.exec('open http://localhost:3000/client/build')

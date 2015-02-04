@@ -13,5 +13,9 @@ module.exports = {
   js: {
     src: src + '/js',
     dest: dest + '/js'
+  },
+  img: {
+    src: src + '/assets/img',
+    dest: dest + '/img'
   }
 }
