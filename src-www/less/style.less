@@ -18,6 +18,19 @@ h2 {
   overflow: hidden;
 }
 
+.footer-bar {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  background: #999;
+}
+
+.footer-bar-icon {
+  font-size: 3em;
+}
+
 .blink {
   -webkit-animation: fadeIn 900ms;
   -webkit-animation-iteration-count: infinite;
@@ -43,6 +56,14 @@ h2 {
   to {
     -webkit-transform: translate3d(@to, 0, 0);
   }
+}
+.spin(){
+  -webkit-animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
 }
 
 @-webkit-keyframes fadeIn{

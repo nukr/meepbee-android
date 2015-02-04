@@ -3,6 +3,7 @@ const cx = require('classnames');
 const action = require('../actions/AppActionCreator');
 const store = require('../stores/SimpleStore');
 const ImageBox = require('./ImageBox.jsx');
+const FooterBar = require('./FooterBar.jsx');
 
 function getTruth() {
   return store.getTruth();
@@ -39,6 +40,7 @@ let Main = React.createClass({
           <button onClick={ this.handleClick.bind(null, 'stop') } >Stop</button>
         </div>
         <ImageBox products={this.state.products} />
+        <FooterBar />
       </div>
     )
   },
