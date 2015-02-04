@@ -9,7 +9,7 @@ if (typeof cordova === 'undefined') {
   React.render(Main(), document.getElementById('react'));
 } else {
   document.addEventListener('deviceready', function () {
-    StatusBar.styleDefault();
+    //StatusBar.styleDefault();
     React.render(Main(), document.getElementById('react'));
   })
 }
