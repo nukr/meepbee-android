@@ -12,24 +12,45 @@ let Image = React.createClass({
   },
 
   render(){
+    let product = this.props.product;
     let imgClass = cx({
-      hide: this.props.product.hide,
-      transition: this.props.product.transition,
-      fadeIn: this.props.product.fadeIn
+      hide: product.hide,
+      transition: product.transition,
+      fadeIn: product.fadeIn
     });
 
     let imgWrapperClass = cx({
+      'product-wrapper': true
     })
+    let avatarImage = (function () {
+      let img = product.seller.avatarImage
+      if (typeof img === 'undefined') {
+        return 'img/img_avatar_nophoto.png';
+      } else {
+        return img.url;
+      }
+    })();
     return (
       <div className={imgWrapperClass}>
         <img
           className={imgClass}
-          onLoad={this.props.onLoad.bind(null, this.props.product)}
-          onClick={this.props.onClick.bind(null, this.props.product)}
-          src={this.props.product.thumbnailImages[0].url}
+          onLoad={this.props.onLoad.bind(null, product)}
+          onClick={this.props.onClick.bind(null, product)}
+          src={product.thumbnailImages[0].url}
           width={window.innerWidth}
         />
-        <p>{this.props.product.title}</p>
+        <div className="avatar">
+          <img
+            className="avatar-image"
+            src={avatarImage}
+            alt="avatarImage"
+          />
+          <span className="seller-name">
+            {product.seller.name}
+          </span>
+        </div>
+        <span className="product-price">{product.price}</span>
+        {product.title}
       </div>
     )
   },

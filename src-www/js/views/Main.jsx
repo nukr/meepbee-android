@@ -4,9 +4,15 @@ const action = require('../actions/AppActionCreator');
 const store = require('../stores/SimpleStore');
 const ImageBox = require('./ImageBox.jsx');
 const FooterBar = require('./FooterBar.jsx');
+const pageStore = require('../stores/PageStore');
+const Message = require('../views/Message');
+const HeaderBar = require('../views/HeaderBar.jsx')
 
 function getTruth() {
-  return store.getTruth();
+  return {
+    store: store.getTruth(),
+    page: pageStore.getState()
+  }
 }
 
 let Main = React.createClass({
@@ -16,42 +22,46 @@ let Main = React.createClass({
 
   componentDidMount(){
     store.addChangeListener(this.change);
+    pageStore.addChangeListener(this.change);
   },
 
   componentWillUnmount(){
     store.removeChangeListener(this.change);
-  },
-
-  render() {
-    let classString = cx({
-      'blink': this.state.animation.blink,
-      'transition': this.state.animation.transition
-    });
-
-    return(
-      <div className="main">
-        <div className={classString}>
-          <h1>Hi there! Hello React</h1>
-          <h2>its cool</h2>
-        </div>
-        <div>
-          <button onClick={ this.handleClick.bind(null, 'blink') } >Blink</button>
-          <button onClick={ this.handleClick.bind(null, 'transition') } >Transition</button>
-          <button onClick={ this.handleClick.bind(null, 'stop') } >Stop</button>
-        </div>
-        <ImageBox products={this.state.products} />
-        <FooterBar />
-      </div>
-    )
-  },
-
-  handleClick(animation, e) {
-    e.preventDefault();
-    action.animation(animation);
+    pageStore.removeChangeListener(this.change);
   },
 
   change() {
     this.setState(getTruth());
+  },
+
+  render() {
+    let productView = () => {
+      return (
+        <div>
+          <ImageBox products={this.state.store.products} />
+        </div>
+      );
+    }
+
+    let view;
+
+    if (this.state.page === "message") {
+      view = <Message />
+    }
+
+    if (this.state.page === "main") {
+      view = productView();
+    }
+
+    return(
+      <div className="main">
+        <HeaderBar />
+        <div className="view">
+          {view}
+        </div>
+        <FooterBar />
+      </div>
+    )
   }
 })
 

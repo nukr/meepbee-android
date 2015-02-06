@@ -10,7 +10,8 @@ exports.getData = () => {
   sa.get(url)
     .set('X-Parse-Application-Id', appid)
     .set('X-Parse-REST-API-Key', restapikey)
+    .query({include: 'seller'})
     .end(function (res) {
-      action.load(res.body.results)
+      action.load(res.body.results.reverse())
     });
 }

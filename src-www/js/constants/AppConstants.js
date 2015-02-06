@@ -9,6 +9,7 @@ module.exports = keyMirror({
   ANIMATION: null,
   TRANSITION: null,
   FADE_IN: null,
+  GO: null,
   CHANGE_EVENT: null
 
 });
