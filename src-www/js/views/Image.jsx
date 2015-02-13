@@ -13,15 +13,13 @@ let Image = React.createClass({
 
   render(){
     let product = this.props.product;
-    let imgClass = cx({
+    let productClass = cx({
+      'product-wrapper': true,
       hide: product.hide,
       transition: product.transition,
       fadeIn: product.fadeIn
     });
 
-    let imgWrapperClass = cx({
-      'product-wrapper': true
-    })
     let avatarImage = (function () {
       let img = product.seller.avatarImage
       if (typeof img === 'undefined') {
@@ -31,13 +29,13 @@ let Image = React.createClass({
       }
     })();
     return (
-      <div className={imgWrapperClass}>
+      <div
+        onClick={this.props.onClick.bind(null, product)}
+        onLoad={this.props.onLoad.bind(null, product)}
+        className={productClass}>
         <img
-          className={imgClass}
-          onLoad={this.props.onLoad.bind(null, product)}
-          onClick={this.props.onClick.bind(null, product)}
+          className="product-img"
           src={product.thumbnailImages[0].url}
-          width={window.innerWidth}
         />
         <div className="avatar">
           <img

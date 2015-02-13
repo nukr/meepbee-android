@@ -1,17 +1,18 @@
 const React = require('react');
 const cx = require('classnames');
 const action = require('../actions/AppActionCreator');
-const store = require('../stores/SimpleStore');
+const ProductStore = require('../stores/ProductStore');
 const ImageBox = require('./ImageBox.jsx');
 const FooterBar = require('./FooterBar.jsx');
-const pageStore = require('../stores/PageStore');
+const PageStore = require('../stores/PageStore');
 const Message = require('../views/Message');
 const HeaderBar = require('../views/HeaderBar.jsx')
+const ProcessImage = require('../views/ProcessImage.jsx');
 
 function getTruth() {
   return {
-    store: store.getTruth(),
-    page: pageStore.getState()
+    ProductStore: ProductStore.getTruth(),
+    PageStore: PageStore.getState()
   }
 }
 
@@ -21,13 +22,13 @@ let Main = React.createClass({
   },
 
   componentDidMount(){
-    store.addChangeListener(this.change);
-    pageStore.addChangeListener(this.change);
+    ProductStore.addChangeListener(this.change);
+    PageStore.addChangeListener(this.change);
   },
 
   componentWillUnmount(){
-    store.removeChangeListener(this.change);
-    pageStore.removeChangeListener(this.change);
+    ProductStore.removeChangeListener(this.change);
+    PageStore.removeChangeListener(this.change);
   },
 
   change() {
@@ -38,19 +39,23 @@ let Main = React.createClass({
     let productView = () => {
       return (
         <div>
-          <ImageBox products={this.state.store.products} />
+          <ImageBox products={this.state.ProductStore.products} />
         </div>
       );
     }
 
     let view;
 
-    if (this.state.page === "message") {
+    if (this.state.PageStore.view === "message") {
       view = <Message />
     }
 
-    if (this.state.page === "main") {
+    if (this.state.PageStore.view === "main") {
       view = productView();
+    }
+
+    if (this.state.PageStore.view === "process-image") {
+      view = <ProcessImage />
     }
 
     return(

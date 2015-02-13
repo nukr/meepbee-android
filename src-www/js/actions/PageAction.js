@@ -2,10 +2,10 @@ const AppDispatcher = require('../dispatcher/AppDispatcher');
 const AppConstants = require('../constants/AppConstants');
 
 let PageAction = {
-  go(page){
+  go(data){
     AppDispatcher.handleViewAction({
       actionType: AppConstants.GO,
-      items: page
+      items: data
     })
   },
 };

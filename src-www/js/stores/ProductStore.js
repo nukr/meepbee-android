@@ -1,6 +1,5 @@
 const AppDispatcher = require('../dispatcher/AppDispatcher');
 const AppConstants = require('../constants/AppConstants');
-const actions = require('../actions/AppActionCreator');
 
 const EventEmitter = require('events').EventEmitter; // 取得一個 pub/sub 廣播器
 

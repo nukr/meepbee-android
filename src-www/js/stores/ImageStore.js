@@ -1,12 +1,12 @@
 const AppDispatcher = require('../dispatcher/AppDispatcher');
 const AppConstants = require('../constants/AppConstants');
-const pageAction = require('../actions/PageAction');
 
 const EventEmitter = require('events').EventEmitter; // 取得一個 pub/sub 廣播器
 
 let Store = {};
 let State = {};
-State.view = 'main'
+
+State.uri = 'http://mtgimage.com/set/ARB/Sen Triplets.jpg';
 
 /**
  * @description
@@ -47,13 +47,14 @@ Store.dispatchToken = AppDispatcher.register(function eventHandlers(evt) {
 
   switch (action.actionType) {
 
-    case AppConstants.GO:
-      State.view = action.items.page;
-      Store.emit(AppConstants.CHANGE_EVENT);
-      break;
+    //case AppConstants.GO:
+      //State.uri = action.items.data;
+      //Store.emit(AppConstants.CHANGE_EVENT);
+      //break;
 
     default:
   }
 })
+
 
 module.exports = Store;

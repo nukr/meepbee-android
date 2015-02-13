@@ -12,9 +12,10 @@ let FooterBar = React.createClass({
 
   handleClick(action, event){
     if (action === 'camera') {
-      this.startCamera();
+      //this.startCamera();
+      page.go({page: 'process-image', data: ''});
     } else {
-      page.go(action);
+      page.go({page: action});
     }
   },
 
@@ -24,7 +25,7 @@ let FooterBar = React.createClass({
     });
 
     function onSuccess(imageURI) {
-      alert(imageURI);
+      page.go({page: 'process-image', data: imageURI});
     }
 
     function onFail(message) {

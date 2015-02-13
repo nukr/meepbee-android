@@ -19,21 +19,26 @@ h2 {
 }
 
 .view {
-  margin-top: 60px;
-  margin-bottom: 60px;
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  overflow: auto;
 }
 
 .header-bar {
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   left: 0px;
   top: 0px;
-  height: 60px;
+  height: 12%;
   width: 100%;
   background: #999;
 }
 .product-wrapper {
   position: relative;
+}
+.product-img {
+  width: 100%;
 }
 .product-price {
   position: relative;
@@ -61,10 +66,10 @@ h2 {
   color: white;
 }
 .footer-bar {
-  position: fixed;
+  position: absolute;
   left: 0px;
   bottom: 0px;
-  height: 60px;
+  height: 12%;
   width: 100%;
   background: #999;
 }
@@ -75,6 +80,7 @@ h2 {
 
 .footer-bar > button {
   width: 100% / 4;
+  height: 100%;
 }
 
 .blink {
