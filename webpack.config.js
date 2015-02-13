@@ -6,7 +6,7 @@ module.exports = {
     './src-www/js/boot.js',
   ],
   output: {
-    path: __dirname + '/www/js',
+    path: __dirname + '/www',
     filename: 'bundle.js'
   },
   resolve: {

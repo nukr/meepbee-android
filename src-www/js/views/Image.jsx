@@ -23,7 +23,7 @@ let Image = React.createClass({
     let avatarImage = (function () {
       let img = product.seller.avatarImage
       if (typeof img === 'undefined') {
-        return 'img/img_avatar_nophoto.png';
+        return require('./img_avatar_nophoto.png')
       } else {
         return img.url;
       }
