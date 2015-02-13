@@ -2,6 +2,7 @@
   "name": "meepbee-android",
   "version": "0.0.1",
   "description": "",
+  "repository": "https://github.com/nukr/meepbee-android.git",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,9 +20,12 @@
     "6to5-core": "^3.3.4",
     "6to5-loader": "^3.0.0",
     "6to5-runtime": "^3.3.4",
+    "browser-sync": "^2.0.1",
     "css-loader": "^0.9.1",
+    "file-loader": "^0.8.1",
     "gulp-mocha": "^2.0.0",
     "gulp-rename": "^1.2.0",
+    "image-loader": "0.0.1",
     "koa": "^0.16.0",
     "koa-static": "^1.4.9",
     "less": "^2.3.1",
@@ -30,6 +34,7 @@
     "react-hot-loader": "^1.1.4",
     "require-dir": "^0.1.0",
     "style-loader": "^0.8.3",
+    "url-loader": "^0.5.5",
     "webpack": "^1.5.3",
     "webpack-dev-server": "^1.7.0"
   }
