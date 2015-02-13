@@ -8,6 +8,7 @@ const PageStore = require('../stores/PageStore');
 const Message = require('../views/Message');
 const HeaderBar = require('../views/HeaderBar.jsx')
 const ProcessImage = require('../views/ProcessImage.jsx');
+const User = require('../views/User');
 
 function getTruth() {
   return {
@@ -47,26 +48,46 @@ let Main = React.createClass({
     let view;
 
     if (this.state.PageStore.view === "message") {
-      view = <Message />
+      view = (
+        <div className="main">
+          <HeaderBar />
+          <div className="view">
+            <Message />
+          </div>
+          <FooterBar />
+        </div>
+      )
     }
 
     if (this.state.PageStore.view === "main") {
-      view = productView();
+      view = (
+        <div className="main">
+          <HeaderBar />
+          <div className="view">
+            { productView() }
+          </div>
+          <FooterBar />
+        </div>
+      )
     }
 
     if (this.state.PageStore.view === "process-image") {
       view = <ProcessImage />
     }
 
-    return(
-      <div className="main">
-        <HeaderBar />
-        <div className="view">
-          {view}
+    if (this.state.PageStore.view === "user") {
+      view = (
+        <div className="main">
+          <HeaderBar />
+          <div className="view">
+            <User />
+          </div>
+          <FooterBar />
         </div>
-        <FooterBar />
-      </div>
-    )
+      )
+    }
+
+    return view;
   }
 })
 
