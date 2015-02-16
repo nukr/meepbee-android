@@ -39,9 +39,7 @@ let Main = React.createClass({
   render() {
     let productView = () => {
       return (
-        <div>
-          <ImageBox products={this.state.ProductStore.products} />
-        </div>
+        <ImageBox products={this.state.ProductStore.products} />
       );
     }
 
@@ -63,9 +61,7 @@ let Main = React.createClass({
       view = (
         <div className="main">
           <HeaderBar />
-          <div className="view">
-            { productView() }
-          </div>
+          { productView() }
           <FooterBar />
         </div>
       )
@@ -89,6 +85,6 @@ let Main = React.createClass({
 
     return view;
   }
-})
+});
 
 module.exports = Main;

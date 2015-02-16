@@ -47,11 +47,13 @@ let Image = React.createClass({
             {product.seller.name}
           </span>
         </div>
-        <span className="product-price">{product.price}</span>
-        {product.title}
+        <div>
+          <div className="product-price">{product.price}</div>
+          <div className="product-title">{product.title}</div>
+        </div>
       </div>
-    )
-  },
-})
+    );
+  }
+});
 
 module.exports = Image;

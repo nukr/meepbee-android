@@ -1,0 +1,47 @@
+.blink {
+  -webkit-animation: fadeIn 900ms;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.transition {
+  -webkit-animation: viewShowFromRightEnter 900ms;
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 900ms;
+}
+
+.fadeTo(@from, @to){
+  from {opacity: @from;}
+  to {opacity: @to;}
+}
+
+.slide(@from, @to) {
+  from {
+    -webkit-transform: translate3d(@from, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(@to, 0, 0);
+  }
+}
+.spin(){
+  -webkit-animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
+}
+
+@-webkit-keyframes fadeIn{
+  .fadeTo(0, 1);
+}
+
+@-webkit-keyframes viewShowFromLeftEnter {
+  .slide(-100%, 0);
+}
+
+@-webkit-keyframes viewShowFromRightEnter {
+  .slide(100%, 0);
+}
+

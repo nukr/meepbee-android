@@ -20,7 +20,7 @@ let ImageBox = React.createClass({
 
   render(){
     return (
-      <div>
+      <div className="product-container">
         {this.props.products.map(function (product, index) {
           return (
             <Image

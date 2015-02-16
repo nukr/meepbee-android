@@ -1,147 +1,25 @@
-@nice-blue: #5B83AD;
-@light-blue: @nice-blue + #111;
+@import 'user.less';
+@import 'animation.less';
+@import 'product.less';
+@import 'footer.less';
 
-html, body {
-  width: 100%;
+html, body, #react {
+}
+
+.main {
   -webkit-animation: fadeIn 900ms;
-}
-
-h1 {
-  color: @nice-blue;
-}
-
-h2 {
-  color: @light-blue;
-}
-
-#react {
-  overflow: hidden;
-}
-
-.view {
-  position: absolute;
-  top: 12%;
-  bottom: 12%;
-  overflow: auto;
-  width: 100%;
+  display: flex;
+  flex-flow: column;
 }
 
 .header-bar {
-  z-index: 1000;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 12%;
-  width: 100%;
   background: #999;
 }
-.product-wrapper {
-  position: relative;
-}
-.product-img {
-  width: 100%;
-}
-.product-price {
-  position: relative;
-  background: #999;
-  bottom: 50px;
-  left: 0px;
-  padding: 5px;
 
-}
-.avatar {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
 .avatar-image {
   border-radius: 50%;
-  width: 20%;
-}
-.header-bar img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.seller-name {
-  color: white;
-}
-.footer-bar {
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 12%;
-  width: 100%;
-  background: #999;
-}
-
-.footer-bar-icon {
-  font-size: 3em;
-}
-
-.footer-bar > button {
-  width: 100% / 4;
-  height: 100%;
-}
-
-.blink {
-  -webkit-animation: fadeIn 900ms;
-  -webkit-animation-iteration-count: infinite;
-}
-
-.transition {
-  -webkit-animation: viewShowFromRightEnter 900ms;
-}
-
-.fadeIn {
-  -webkit-animation: fadeIn 900ms;
-}
-
-.fadeTo(@from, @to){
-  from {opacity: @from;}
-  to {opacity: @to;}
-}
-
-.slide(@from, @to) {
-  from {
-    -webkit-transform: translate3d(@from, 0, 0);
-  }
-  to {
-    -webkit-transform: translate3d(@to, 0, 0);
-  }
-}
-.spin(){
-  -webkit-animation: spin 1s infinite linear;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(359deg); }
-}
-
-@-webkit-keyframes fadeIn{
-  .fadeTo(0, 1);
-}
-
-@-webkit-keyframes viewShowFromLeftEnter {
-  .slide(-100%, 0);
-}
-
-@-webkit-keyframes viewShowFromRightEnter {
-  .slide(100%, 0);
 }
 
 .hide {
   visibility: hidden;
-}
-
-.user {
-  display: flex;
-  justify-content: space-around;
-}
-
-.element {
-  background: red;
-  width: 100px;
-  height: 100px;
 }
